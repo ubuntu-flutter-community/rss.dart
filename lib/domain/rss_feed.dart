@@ -107,7 +107,7 @@ class RssFeed {
       rating: findElementOrNull(channelElement, 'rating')?.value,
       webMaster: findElementOrNull(channelElement, 'webMaster')?.value,
       ttl: int.tryParse(
-              findElementOrNull(channelElement, 'ttl')?.value ?? '0') ??
+              findElementOrNull(channelElement, 'ttl')?.value ?? '0',) ??
           0,
       dc: DublinCore.parse(channelElement),
       itunes: RssItunes.parse(channelElement),

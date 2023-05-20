@@ -23,7 +23,7 @@ void main() {
     expect(firstItem.title, 'Processing Inclusions with XSLT');
     expect(firstItem.link, 'http://xml.com/pub/2000/08/09/xslt/xslt.html');
     expect(firstItem.description,
-        'Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing.');
+        'Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing.',);
   });
 
   test('parse RSS1 with syndication module', () {
@@ -66,7 +66,7 @@ void main() {
       'Simon St.Laurent (mailto:simonstl@simonstl.com)',
     );
     expect(
-        firstItem.dc!.rights, 'Copyright © 2000 O\'Reilly & Associates, Inc.');
+        firstItem.dc!.rights, 'Copyright © 2000 O\'Reilly & Associates, Inc.',);
     expect(firstItem.dc!.subject, 'XML');
   });
 
@@ -87,7 +87,7 @@ void main() {
     );
     expect(
       firstItem.content!.images,
-      Iterable.empty(),
+      const Iterable.empty(),
     );
   });
 

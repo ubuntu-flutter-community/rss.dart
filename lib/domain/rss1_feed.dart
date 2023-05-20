@@ -74,7 +74,7 @@ class Rss1Feed {
       image:
           findElementOrNull(rdfElement, 'image')?.getAttribute('rdf:resource'),
       updatePeriod: _parseUpdatePeriod(
-          findElementOrNull(rdfElement, 'sy:updatePeriod')?.value),
+          findElementOrNull(rdfElement, 'sy:updatePeriod')?.value,),
       updateFrequency:
           parseInt(findElementOrNull(rdfElement, 'sy:updateFrequency')?.value),
       updateBase:

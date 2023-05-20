@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:xml/xml.dart';
 
 XmlElement? findElementOrNull(XmlElement element, String name,
-    {String? namespace}) {
+    {String? namespace,}) {
   try {
     return element.findAllElements(name, namespace: namespace).first;
   } on StateError {
@@ -12,7 +12,7 @@ XmlElement? findElementOrNull(XmlElement element, String name,
 }
 
 List<XmlElement>? findAllDirectElementsOrNull(XmlElement element, String name,
-    {String? namespace}) {
+    {String? namespace,}) {
   try {
     return element.findElements(name, namespace: namespace).toList();
   } on StateError {

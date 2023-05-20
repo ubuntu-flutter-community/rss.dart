@@ -60,7 +60,7 @@ class WebFeed {
         return WebFeed.fromAtom(atomFeed);
       case RssVersion.Unknown:
         throw Error.safeToString(
-            'Invalid XML String? We cannot detect RSS/Atom version.');
+            'Invalid XML String? We cannot detect RSS/Atom version.',);
       default:
         throw Exception('Some error has occured.');
     }

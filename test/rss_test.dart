@@ -82,7 +82,7 @@ void main() {
     expect(feed.items.first.enclosure!.type, 'audio/mpeg');
 
     expect(feed.items.first.content!.value,
-        '<img width=\"1000\" height=\"690\" src=\"https://test.com/image_link\"/> Test content<br />');
+        '<img width=\"1000\" height=\"690\" src=\"https://test.com/image_link\"/> Test content<br />',);
     expect(feed.items.first.content!.images.first, 'https://test.com/image_link');
   });
   test('parse RSS-Media.xml', () {
@@ -340,7 +340,7 @@ void main() {
     expect(item.itunes!.episode, 1);
     expect(item.itunes!.season, 1);
     expect(item.itunes!.image!.href, 'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357');
-    expect(item.itunes!.duration, Duration(minutes: 32, seconds: 30));
+    expect(item.itunes!.duration, const Duration(minutes: 32, seconds: 30));
     expect(item.itunes!.explicit, false);
     expect(item.itunes!.keywords, 'go,golang,open source,software,development'.split(','));
     expect(item.itunes!.subtitle, 'with Erik, Carlisia, and Brian');
@@ -357,7 +357,7 @@ void main() {
 
     expect(feed.title, 'Podcasting 2.0 Namespace Example');
     expect(
-        feed.description, 'This is a fake show that exists only as an example of the "podcast" namespace tag usage.');
+        feed.description, 'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',);
     expect(feed.link, 'http://example.com/podcast');
     expect(feed.language, 'en-US');
     expect(feed.lastBuildDate, 'Fri, 09 Oct 2020 04:30:38 GMT');
