@@ -1,7 +1,7 @@
-import 'package:rss/domain/media/star_rating.dart';
-import 'package:rss/domain/media/statistics.dart';
-import 'package:rss/domain/media/tags.dart';
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/domain/media/star_rating.dart';
+import 'package:rss_dart/domain/media/statistics.dart';
+import 'package:rss_dart/domain/media/tags.dart';
+import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class Community {

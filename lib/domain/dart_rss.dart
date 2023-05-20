@@ -1,6 +1,6 @@
-import 'package:rss/dart_rss.dart';
+import 'package:rss_dart/dart_rss.dart';
 import 'package:http/http.dart' as http;
-import 'package:rss/domain/rss1_feed.dart';
+import 'package:rss_dart/domain/rss1_feed.dart';
 import 'package:xml/xml.dart' as xml;
 import 'package:intl/intl.dart';
 

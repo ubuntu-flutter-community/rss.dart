@@ -1,8 +1,8 @@
 import 'dart:core';
 
-import 'package:rss/domain/dublin_core/dublin_core.dart';
-import 'package:rss/domain/rss1_item.dart';
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/domain/dublin_core/dublin_core.dart';
+import 'package:rss_dart/domain/rss1_item.dart';
+import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 enum UpdatePeriod {

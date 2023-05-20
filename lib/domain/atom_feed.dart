@@ -1,9 +1,9 @@
-import 'package:rss/domain/atom_category.dart';
-import 'package:rss/domain/atom_generator.dart';
-import 'package:rss/domain/atom_item.dart';
-import 'package:rss/domain/atom_link.dart';
-import 'package:rss/domain/atom_person.dart';
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/domain/atom_category.dart';
+import 'package:rss_dart/domain/atom_generator.dart';
+import 'package:rss_dart/domain/atom_item.dart';
+import 'package:rss_dart/domain/atom_link.dart';
+import 'package:rss_dart/domain/atom_person.dart';
+import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class AtomFeed {

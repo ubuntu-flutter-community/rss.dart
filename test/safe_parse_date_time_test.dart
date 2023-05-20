@@ -1,4 +1,4 @@
-import 'package:rss/dart_rss.dart';
+import 'package:rss_dart/dart_rss.dart';
 import 'package:test/test.dart';
 
 void main() {

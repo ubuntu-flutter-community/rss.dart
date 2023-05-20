@@ -1,7 +1,7 @@
-import 'package:rss/domain/podcast_index/rss_podcast_index_chapters.dart';
-import 'package:rss/domain/podcast_index/rss_podcast_index_soudbite.dart';
-import 'package:rss/domain/podcast_index/rss_podcast_index_transcript.dart';
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_chapters.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_soudbite.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_transcript.dart';
+import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class RssItemPodcastIndex {
@@ -18,7 +18,8 @@ class RssItemPodcastIndex {
   factory RssItemPodcastIndex.parse(XmlElement element) {
     return RssItemPodcastIndex(
       chapters: RssPodcastIndexChapters.parse(
-          findElementOrNull(element, 'podcast:chapters'),),
+        findElementOrNull(element, 'podcast:chapters'),
+      ),
       transcripts: element.findElements('podcast:transcript').map((e) {
         return RssPodcastIndexTranscript.parse(e);
       }).toList(),

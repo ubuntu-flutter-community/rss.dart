@@ -2,7 +2,7 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:rss/dart_rss.dart';
+import 'package:rss_dart/dart_rss.dart';
 
 void main() {
   test('parse Invalid.xml', () {

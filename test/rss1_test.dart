@@ -2,7 +2,7 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:rss/domain/rss1_feed.dart';
+import 'package:rss_dart/domain/rss1_feed.dart';
 
 void main() {
   test('parse basic RSS 1.0', () {

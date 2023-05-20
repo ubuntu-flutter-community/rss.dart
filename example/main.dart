@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:http/http.dart' as http;
-import 'package:rss/dart_rss.dart';
+import 'package:rss_dart/dart_rss.dart';
 
 void main() {
   final client = http.Client();

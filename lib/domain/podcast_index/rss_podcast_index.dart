@@ -1,6 +1,6 @@
-import 'package:rss/domain/podcast_index/rss_podcast_index_funding.dart';
-import 'package:rss/domain/podcast_index/rss_podcast_index_locked.dart';
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_funding.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_locked.dart';
+import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class RssPodcastIndex {
@@ -22,7 +22,8 @@ class RssPodcastIndex {
         return RssPodcastIndexFunding.parse(e);
       }).toList(),
       locked: RssPodcastIndexLocked.parse(
-          findElementOrNull(element, 'podcast:locked'),),
+        findElementOrNull(element, 'podcast:locked'),
+      ),
     );
   }
 }

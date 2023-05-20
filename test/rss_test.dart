@@ -1,9 +1,9 @@
 import 'dart:core';
 import 'dart:io';
 
-import 'package:rss/dart_rss.dart';
-import 'package:rss/domain/rss_itunes_episode_type.dart';
-import 'package:rss/domain/rss_itunes_type.dart';
+import 'package:rss_dart/dart_rss.dart';
+import 'package:rss_dart/domain/rss_itunes_episode_type.dart';
+import 'package:rss_dart/domain/rss_itunes_type.dart';
 import 'package:test/test.dart';
 
 void main() {

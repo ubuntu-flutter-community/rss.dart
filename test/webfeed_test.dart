@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:rss/domain/dart_rss.dart';
+import 'package:rss_dart/domain/dart_rss.dart';
 
 void main() {
   group('about WebFeed, ', () {

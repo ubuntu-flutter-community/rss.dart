@@ -1,6 +1,6 @@
 import 'package:xml/xml.dart';
 
-import 'package:rss/util/helpers.dart';
+import 'package:rss_dart/util/helpers.dart';
 
 import 'rss_itunes_category.dart';
 import 'rss_itunes_image.dart';
