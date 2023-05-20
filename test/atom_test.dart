@@ -11,7 +11,9 @@ void main() {
     try {
       AtomFeed.parse(xmlString);
       fail('Should throw Argument Error');
-    } on ArgumentError {}
+    } on ArgumentError {
+      // Empty catch clause
+    }
   });
 
   test('parse Atom.xml', () {

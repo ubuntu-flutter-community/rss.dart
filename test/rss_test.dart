@@ -13,7 +13,9 @@ void main() {
     try {
       RssFeed.parse(xmlString);
       fail('Should throw Argument Error');
-    } on ArgumentError {}
+    } on ArgumentError {
+      // Empty catch clause
+    }
   });
   test('parse RSS.xml', () {
     final xmlString = File('test/xml/RSS.xml').readAsStringSync();
@@ -21,8 +23,10 @@ void main() {
     final feed = RssFeed.parse(xmlString);
 
     expect(feed.title, 'News - Foo bar News');
-    expect(feed.description,
-        'Foo bar News and Updates feed provided by Foo bar, Inc.',);
+    expect(
+      feed.description,
+      'Foo bar News and Updates feed provided by Foo bar, Inc.',
+    );
     expect(feed.link, 'https://foo.bar.news/');
     expect(feed.author, 'hello@world.net');
     expect(feed.language, 'en-US');
@@ -67,10 +71,14 @@ void main() {
 
     expect(feed.items.length, 2);
 
-    expect(feed.items.first.title,
-        'The standard Lorem Ipsum passage, used since the 1500s',);
-    expect(feed.items.first.description,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',);
+    expect(
+      feed.items.first.title,
+      'The standard Lorem Ipsum passage, used since the 1500s',
+    );
+    expect(
+      feed.items.first.description,
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    );
     expect(feed.items.first.link, 'https://foo.bar.news/1');
     expect(feed.items.first.guid, 'https://foo.bar.news/1?guid');
     expect(feed.items.first.pubDate, 'Mon, 26 Mar 2018 14:00:00 PDT');
@@ -80,8 +88,10 @@ void main() {
     expect(feed.items.first.source!.url, 'https://foo.bar.news/1?source');
     expect(feed.items.first.source!.value, 'Foo Bar');
     expect(feed.items.first.comments, 'https://foo.bar.news/1/comments');
-    expect(feed.items.first.enclosure!.url,
-        'http://www.scripting.com/mp3s/weatherReportSuite.mp3',);
+    expect(
+      feed.items.first.enclosure!.url,
+      'http://www.scripting.com/mp3s/weatherReportSuite.mp3',
+    );
     expect(feed.items.first.enclosure!.length, 12216320);
     expect(feed.items.first.enclosure!.type, 'audio/mpeg');
 
@@ -90,7 +100,9 @@ void main() {
       '<img width=\"1000\" height=\"690\" src=\"https://test.com/image_link\"/> Test content<br />',
     );
     expect(
-        feed.items.first.content!.images.first, 'https://test.com/image_link',);
+      feed.items.first.content!.images.first,
+      'https://test.com/image_link',
+    );
   });
   test('parse RSS-Media.xml', () {
     final xmlString = File('test/xml/RSS-Media.xml').readAsStringSync();
@@ -98,7 +110,9 @@ void main() {
     final feed = RssFeed.parse(xmlString);
     expect(feed.title, 'Song Site');
     expect(
-        feed.description, 'Media RSS example with new fields added in v1.5.0',);
+      feed.description,
+      'Media RSS example with new fields added in v1.5.0',
+    );
 
     expect(feed.items.length, 1);
 
@@ -133,8 +147,10 @@ void main() {
     expect(mediaCredit.scheme, 'urn:yvs');
     expect(mediaCredit.value, 'copyright holder of the entity');
 
-    expect(item.media!.category!.scheme,
-        'http://search.yahoo.com/mrss/category_ schema',);
+    expect(
+      item.media!.category!.scheme,
+      'http://search.yahoo.com/mrss/category_ schema',
+    );
     expect(item.media!.category!.label, 'Music');
     expect(item.media!.category!.value, 'music/artist/album/song');
 
@@ -145,8 +161,10 @@ void main() {
     expect(item.media!.title!.value, "The Judy's -- The Moo Song");
 
     expect(item.media!.description!.type, 'plain');
-    expect(item.media!.description!.value,
-        'This was some really bizarre band I listened to as a young lad.',);
+    expect(
+      item.media!.description!.value,
+      'This was some really bizarre band I listened to as a young lad.',
+    );
 
     expect(item.media!.keywords, 'kitty, cat, big dog, yarn, fluffy');
 
@@ -197,7 +215,9 @@ void main() {
     expect(item.media!.embed!.params.length, 5);
     expect(item.media!.embed!.params.first.name, 'type');
     expect(
-        item.media!.embed!.params.first.value, 'application/x-shockwave-flash',);
+      item.media!.embed!.params.first.value,
+      'application/x-shockwave-flash',
+    );
 
     expect(item.media!.responses.length, 2);
     expect(item.media!.responses.first, 'http://www.response1.com');
@@ -214,7 +234,9 @@ void main() {
     expect(item.media!.prices.first.price, 19.99);
     expect(item.media!.prices.first.type, 'rent');
     expect(
-        item.media!.prices.first.info, 'http://www.dummy.jp/package_info.html',);
+      item.media!.prices.first.info,
+      'http://www.dummy.jp/package_info.html',
+    );
     expect(item.media!.prices.first.currency, 'EUR');
 
     expect(item.media!.license!.type, 'text/html');
@@ -326,10 +348,14 @@ void main() {
     expect(feed.itunes!.author, 'Changelog Media');
     expect(feed.itunes!.summary, 'Foo');
     expect(feed.itunes!.explicit, false);
-    expect(feed.itunes!.image!.href,
-        'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357',);
-    expect(feed.itunes!.keywords,
-        'go,golang,open source,software,development'.split(','),);
+    expect(
+      feed.itunes!.image!.href,
+      'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357',
+    );
+    expect(
+      feed.itunes!.keywords,
+      'go,golang,open source,software,development'.split(','),
+    );
     expect(feed.itunes!.owner!.name, 'Changelog Media');
     expect(feed.itunes!.owner!.email, 'editors@changelog.com');
     expect({
@@ -359,16 +385,22 @@ void main() {
     expect(item.itunes!.episodeType, RssItunesEpisodeType.full);
     expect(item.itunes!.episode, 1);
     expect(item.itunes!.season, 1);
-    expect(item.itunes!.image!.href,
-        'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357',);
+    expect(
+      item.itunes!.image!.href,
+      'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357',
+    );
     expect(item.itunes!.duration, const Duration(minutes: 32, seconds: 30));
     expect(item.itunes!.explicit, false);
-    expect(item.itunes!.keywords,
-        'go,golang,open source,software,development'.split(','),);
+    expect(
+      item.itunes!.keywords,
+      'go,golang,open source,software,development'.split(','),
+    );
     expect(item.itunes!.subtitle, 'with Erik, Carlisia, and Brian');
     expect(item.itunes!.summary, 'Foo');
-    expect(item.itunes!.author,
-        'Erik St. Martin, Carlisia Pinto, and Brian Ketelsen',);
+    expect(
+      item.itunes!.author,
+      'Erik St. Martin, Carlisia Pinto, and Brian Ketelsen',
+    );
     expect(item.itunes!.explicit, false);
     expect(item.itunes!.title, 'awesome title');
     expect(item.itunes!.block, false);
