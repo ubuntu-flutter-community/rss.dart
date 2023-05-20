@@ -1,7 +1,8 @@
-# Dart RSS
+# rss.dart
 
-[![Build Status](https://travis-ci.org/witochandra/webfeed.svg?branch=master)](https://travis-ci.org/witochandra/webfeed)
-[![Pub](https://img.shields.io/pub/v/webfeed.svg)](https://pub.dartlang.org/packages/webfeed)
+This is a fork of https://github.com/sudame/dart-rss (which itself is a fork of https://github.com/witochandra/webfeed) :fork_and_knife: :fork_and_knife: that is updated for dart 3 and Flutter 3.10.
+
+We publish this updated package under rss.dart.
 
 A dart package for parsing RSS1.0 / RSS2.0 / Atom feed.
 

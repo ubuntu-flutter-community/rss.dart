@@ -2,7 +2,7 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:dart_rss/domain/rss1_feed.dart';
+import 'package:rss/domain/rss1_feed.dart';
 
 void main() {
   test('parse basic RSS 1.0', () {
@@ -22,13 +22,15 @@ void main() {
     final firstItem = feed.items.first;
     expect(firstItem.title, 'Processing Inclusions with XSLT');
     expect(firstItem.link, 'http://xml.com/pub/2000/08/09/xslt/xslt.html');
-    expect(firstItem.description,
-        'Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing.',);
+    expect(
+      firstItem.description,
+      'Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing.',
+    );
   });
 
   test('parse RSS1 with syndication module', () {
     final xmlString =
-    File('test/xml/RSS1-with-syndication-module.xml').readAsStringSync();
+        File('test/xml/RSS1-with-syndication-module.xml').readAsStringSync();
     final feed = Rss1Feed.parse(xmlString);
 
     expect(feed.title, 'Meerkat');
@@ -42,7 +44,7 @@ void main() {
 
   test('parse RSS1 with dublin core module', () {
     final xmlString =
-    File('test/xml/RSS1-with-dublin-core-module.xml').readAsStringSync();
+        File('test/xml/RSS1-with-dublin-core-module.xml').readAsStringSync();
     final feed = Rss1Feed.parse(xmlString);
 
     expect(feed.title, 'Meerkat');
@@ -66,13 +68,15 @@ void main() {
       'Simon St.Laurent (mailto:simonstl@simonstl.com)',
     );
     expect(
-        firstItem.dc!.rights, 'Copyright © 2000 O\'Reilly & Associates, Inc.',);
+      firstItem.dc!.rights,
+      'Copyright © 2000 O\'Reilly & Associates, Inc.',
+    );
     expect(firstItem.dc!.subject, 'XML');
   });
 
   test('parse RSS1 with content module', () {
     final xmlString =
-    File('test/xml/RSS1-with-content-module.xml').readAsStringSync();
+        File('test/xml/RSS1-with-content-module.xml').readAsStringSync();
     final feed = Rss1Feed.parse(xmlString);
 
     expect(feed.title, 'Example Feed');

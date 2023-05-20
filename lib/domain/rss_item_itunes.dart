@@ -1,4 +1,4 @@
-import 'package:dart_rss/util/helpers.dart';
+import 'package:rss/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 import 'rss_itunes_category.dart';
@@ -50,7 +50,8 @@ class RssItemItunes {
       season: seasonStr == null ? null : int.tryParse(seasonStr),
       duration: durationStr == null ? null : parseDuration(durationStr),
       episodeType: newRssItunesEpisodeType(
-          findElementOrNull(element, 'itunes:episodeType'),),
+        findElementOrNull(element, 'itunes:episodeType'),
+      ),
       author: findElementOrNull(element, 'itunes:author')?.value?.trim(),
       summary: findElementOrNull(element, 'itunes:summary')?.value?.trim(),
       explicit: parseBoolLiteral(element, 'itunes:explicit'),
@@ -63,7 +64,8 @@ class RssItemItunes {
           const <String>[],
       image: RssItunesImage.parse(findElementOrNull(element, 'itunes:image')),
       category: RssItunesCategory.parse(
-          findElementOrNull(element, 'itunes:category'),),
+        findElementOrNull(element, 'itunes:category'),
+      ),
       block: parseBoolLiteral(element, 'itunes:block'),
     );
   }

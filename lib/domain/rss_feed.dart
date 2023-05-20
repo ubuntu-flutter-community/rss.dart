@@ -1,12 +1,12 @@
 import 'dart:core';
 
-import 'package:dart_rss/domain/dublin_core/dublin_core.dart';
-import 'package:dart_rss/domain/podcast_index/rss_podcast_index.dart';
-import 'package:dart_rss/domain/rss_category.dart';
-import 'package:dart_rss/domain/rss_cloud.dart';
-import 'package:dart_rss/domain/rss_image.dart';
-import 'package:dart_rss/domain/rss_item.dart';
-import 'package:dart_rss/util/helpers.dart';
+import 'package:rss/domain/dublin_core/dublin_core.dart';
+import 'package:rss/domain/podcast_index/rss_podcast_index.dart';
+import 'package:rss/domain/rss_category.dart';
+import 'package:rss/domain/rss_cloud.dart';
+import 'package:rss/domain/rss_image.dart';
+import 'package:rss/domain/rss_item.dart';
+import 'package:rss/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 import 'rss_itunes.dart';
@@ -107,7 +107,8 @@ class RssFeed {
       rating: findElementOrNull(channelElement, 'rating')?.value,
       webMaster: findElementOrNull(channelElement, 'webMaster')?.value,
       ttl: int.tryParse(
-              findElementOrNull(channelElement, 'ttl')?.value ?? '0',) ??
+            findElementOrNull(channelElement, 'ttl')?.value ?? '0',
+          ) ??
           0,
       dc: DublinCore.parse(channelElement),
       itunes: RssItunes.parse(channelElement),

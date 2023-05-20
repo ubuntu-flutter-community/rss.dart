@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:dart_rss/domain/dart_rss.dart';
+import 'package:rss/domain/dart_rss.dart';
 
 void main() {
   group('about WebFeed, ', () {
@@ -91,8 +91,10 @@ void main() {
         rss2Feed.items.first.body,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       );
-      expect(rss2Feed.items.first.updated,
-          DateTime.parse('2018-03-26 14:00:00.000'),);
+      expect(
+        rss2Feed.items.first.updated,
+        DateTime.parse('2018-03-26 14:00:00.000'),
+      );
     });
   });
 }

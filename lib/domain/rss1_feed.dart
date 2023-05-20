@@ -1,8 +1,8 @@
 import 'dart:core';
 
-import 'package:dart_rss/domain/dublin_core/dublin_core.dart';
-import 'package:dart_rss/domain/rss1_item.dart';
-import 'package:dart_rss/util/helpers.dart';
+import 'package:rss/domain/dublin_core/dublin_core.dart';
+import 'package:rss/domain/rss1_item.dart';
+import 'package:rss/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 enum UpdatePeriod {
@@ -74,7 +74,8 @@ class Rss1Feed {
       image:
           findElementOrNull(rdfElement, 'image')?.getAttribute('rdf:resource'),
       updatePeriod: _parseUpdatePeriod(
-          findElementOrNull(rdfElement, 'sy:updatePeriod')?.value,),
+        findElementOrNull(rdfElement, 'sy:updatePeriod')?.value,
+      ),
       updateFrequency:
           parseInt(findElementOrNull(rdfElement, 'sy:updateFrequency')?.value),
       updateBase:

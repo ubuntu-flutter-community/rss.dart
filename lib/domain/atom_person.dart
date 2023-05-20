@@ -1,4 +1,4 @@
-import 'package:dart_rss/util/helpers.dart';
+import 'package:rss/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class AtomPerson {

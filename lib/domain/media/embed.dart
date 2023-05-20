@@ -1,4 +1,4 @@
-import 'package:dart_rss/domain/media/param.dart';
+import 'package:rss/domain/media/param.dart';
 import 'package:xml/xml.dart';
 
 class Embed {
