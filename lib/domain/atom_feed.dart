@@ -48,9 +48,9 @@ class AtomFeed {
     }
 
     return AtomFeed(
-      id: findElementOrNull(feedElement, 'id')?.value,
-      title: findElementOrNull(feedElement, 'title')?.value,
-      updated: findElementOrNull(feedElement, 'updated')?.value,
+      id: findElementOrNull(feedElement, 'id')?.innerText,
+      title: findElementOrNull(feedElement, 'title')?.innerText,
+      updated: findElementOrNull(feedElement, 'updated')?.innerText,
       items: feedElement
           .findElements('entry')
           .map((element) => AtomItem.parse(element))
@@ -73,10 +73,10 @@ class AtomFeed {
           .toList(),
       generator:
           AtomGenerator.parse(findElementOrNull(feedElement, 'generator')),
-      icon: findElementOrNull(feedElement, 'icon')?.value,
-      logo: findElementOrNull(feedElement, 'logo')?.value,
-      rights: findElementOrNull(feedElement, 'rights')?.value,
-      subtitle: findElementOrNull(feedElement, 'subtitle')?.value,
+      icon: findElementOrNull(feedElement, 'icon')?.innerText,
+      logo: findElementOrNull(feedElement, 'logo')?.innerText,
+      rights: findElementOrNull(feedElement, 'rights')?.innerText,
+      subtitle: findElementOrNull(feedElement, 'subtitle')?.innerText,
     );
   }
 }

@@ -12,9 +12,9 @@ class AtomSource {
     if (element == null) {
       return null;
     }
-    final id = findElementOrNull(element, 'id')?.value;
-    final title = findElementOrNull(element, 'title')?.value;
-    final updated = findElementOrNull(element, 'updated')?.value;
+    final id = findElementOrNull(element, 'id')?.innerText;
+    final title = findElementOrNull(element, 'title')?.innerText;
+    final updated = findElementOrNull(element, 'updated')?.innerText;
     return AtomSource(id, title, updated);
   }
 }

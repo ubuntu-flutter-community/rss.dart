@@ -93,7 +93,7 @@ class Media {
       title: Title.parse(findElementOrNull(element, 'media:title')),
       description:
           Description.parse(findElementOrNull(element, 'media:description')),
-      keywords: findElementOrNull(element, 'media:keywords')?.value,
+      keywords: findElementOrNull(element, 'media:keywords')?.innerText,
       thumbnails: element
           .findElements('media:thumbnail')
           .map((e) => Thumbnail.parse(e))
@@ -107,20 +107,18 @@ class Media {
       community: Community.parse(findElementOrNull(element, 'media:community')),
       comments: findElementOrNull(element, 'media:comments')
               ?.findElements('media:comment')
-              .map((e) => e.value!)
+              .map((e) => e.innerText)
               .toList() ??
           <String>[],
       embed: Embed.parse(findElementOrNull(element, 'media:embed')),
       responses: findElementOrNull(element, 'media:responses')
               ?.findElements('media:response')
-              .where((e) => e.value != null)
-              .map((e) => e.value!)
+              .map((e) => e.innerText)
               .toList() ??
           <String>[],
       backLinks: findElementOrNull(element, 'media:backLinks')
               ?.findElements('media:backLink')
-              .where((e) => e.value != null)
-              .map((e) => e.value!)
+              .map((e) => e.innerText)
               .toList() ??
           <String>[],
       status: Status.parse(findElementOrNull(element, 'media:status')),

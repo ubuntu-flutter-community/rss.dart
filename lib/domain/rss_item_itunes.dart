@@ -38,24 +38,24 @@ class RssItemItunes {
 
   factory RssItemItunes.parse(XmlElement element) {
     final episodeStr =
-        findElementOrNull(element, 'itunes:episode')?.value?.trim();
+        findElementOrNull(element, 'itunes:episode')?.innerText.trim();
     final seasonStr =
-        findElementOrNull(element, 'itunes:season')?.value?.trim();
+        findElementOrNull(element, 'itunes:season')?.innerText.trim();
     final durationStr =
-        findElementOrNull(element, 'itunes:duration')?.value?.trim();
+        findElementOrNull(element, 'itunes:duration')?.innerText.trim();
 
     return RssItemItunes(
-      title: findElementOrNull(element, 'itunes:title')?.value?.trim(),
+      title: findElementOrNull(element, 'itunes:title')?.innerText.trim(),
       episode: episodeStr == null ? null : int.tryParse(episodeStr),
       season: seasonStr == null ? null : int.tryParse(seasonStr),
       duration: durationStr == null ? null : parseDuration(durationStr),
       episodeType: newRssItunesEpisodeType(
         findElementOrNull(element, 'itunes:episodeType'),
       ),
-      author: findElementOrNull(element, 'itunes:author')?.value?.trim(),
-      summary: findElementOrNull(element, 'itunes:summary')?.value?.trim(),
+      author: findElementOrNull(element, 'itunes:author')?.innerText.trim(),
+      summary: findElementOrNull(element, 'itunes:summary')?.innerText.trim(),
       explicit: parseBoolLiteral(element, 'itunes:explicit'),
-      subtitle: findElementOrNull(element, 'itunes:subtitle')?.value?.trim(),
+      subtitle: findElementOrNull(element, 'itunes:subtitle')?.innerText.trim(),
       keywords: findElementOrNull(element, 'itunes:keywords')
               ?.value
               ?.split(',')

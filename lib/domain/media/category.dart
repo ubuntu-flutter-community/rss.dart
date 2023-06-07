@@ -18,7 +18,7 @@ class Category {
     return Category(
       scheme: element.getAttribute('scheme'),
       label: element.getAttribute('label'),
-      value: element.value,
+      value: element.innerText,
     );
   }
 }

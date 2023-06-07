@@ -14,7 +14,7 @@ class RssPodcastIndexLocked {
 
     return RssPodcastIndexLocked(
       owner: element.getAttribute('owner'),
-      locked: element.value == 'yes' ? true : false,
+      locked: element.innerText == 'yes' ? true : false,
     );
   }
 }

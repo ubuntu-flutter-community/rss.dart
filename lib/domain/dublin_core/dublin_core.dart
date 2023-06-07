@@ -41,27 +41,24 @@ class DublinCore {
   factory DublinCore.parse(XmlElement element) {
     final subjects = findAllDirectElementsOrNull(element, 'dc:subject');
     return DublinCore(
-      title: findElementOrNull(element, 'dc:title')?.value,
-      description: findElementOrNull(element, 'dc:description')?.value,
-      creator: findElementOrNull(element, 'dc:creator')?.value,
-      subject: findElementOrNull(element, 'dc:subject')?.value,
+      title: findElementOrNull(element, 'dc:title')?.innerText,
+      description: findElementOrNull(element, 'dc:description')?.innerText,
+      creator: findElementOrNull(element, 'dc:creator')?.innerText,
+      subject: findElementOrNull(element, 'dc:subject')?.innerText,
       subjects: subjects == null
           ? <String>[]
-          : subjects
-              .where((element) => element.value != null)
-              .map((subjectElement) => subjectElement.value!)
-              .toList(),
-      publisher: findElementOrNull(element, 'dc:publisher')?.value,
-      contributor: findElementOrNull(element, 'dc:contributor')?.value,
-      date: findElementOrNull(element, 'dc:date')?.value,
-      type: findElementOrNull(element, 'dc:type')?.value,
-      format: findElementOrNull(element, 'dc:format')?.value,
-      identifier: findElementOrNull(element, 'dc:identifier')?.value,
-      source: findElementOrNull(element, 'dc:source')?.value,
-      language: findElementOrNull(element, 'dc:language')?.value,
-      relation: findElementOrNull(element, 'dc:relation')?.value,
-      coverage: findElementOrNull(element, 'dc:coverage')?.value,
-      rights: findElementOrNull(element, 'dc:rights')?.value,
+          : subjects.map((subjectElement) => subjectElement.innerText).toList(),
+      publisher: findElementOrNull(element, 'dc:publisher')?.innerText,
+      contributor: findElementOrNull(element, 'dc:contributor')?.innerText,
+      date: findElementOrNull(element, 'dc:date')?.innerText,
+      type: findElementOrNull(element, 'dc:type')?.innerText,
+      format: findElementOrNull(element, 'dc:format')?.innerText,
+      identifier: findElementOrNull(element, 'dc:identifier')?.innerText,
+      source: findElementOrNull(element, 'dc:source')?.innerText,
+      language: findElementOrNull(element, 'dc:language')?.innerText,
+      relation: findElementOrNull(element, 'dc:relation')?.innerText,
+      coverage: findElementOrNull(element, 'dc:coverage')?.innerText,
+      rights: findElementOrNull(element, 'dc:rights')?.innerText,
     );
   }
 }

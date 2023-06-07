@@ -17,7 +17,11 @@ void main() {
     return response.body;
   }).then((bodyString) {
     final channel = RssFeed.parse(bodyString);
-    print(channel);
+    print(channel.title);
+    print(channel.author);
+    print(channel.copyright);
+    print(channel.description);
+    print(channel.docs);
     return channel;
   });
 
@@ -28,7 +32,8 @@ void main() {
     return response.body;
   }).then((bodyString) {
     final feed = AtomFeed.parse(bodyString);
-    print(feed);
+    print(feed.title);
+
     return feed;
   });
 }

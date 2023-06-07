@@ -13,7 +13,7 @@ class AtomGenerator {
     }
     final uri = element.getAttribute('uri');
     final version = element.getAttribute('version');
-    final value = element.value;
+    final value = element.innerText;
     return AtomGenerator(uri, version, value);
   }
 }
