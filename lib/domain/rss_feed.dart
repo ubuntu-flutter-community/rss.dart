@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:rss_dart/domain/dublin_core/dublin_core.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_person.dart';
 import 'package:rss_dart/domain/rss_category.dart';
 import 'package:rss_dart/domain/rss_cloud.dart';
 import 'package:rss_dart/domain/rss_image.dart';
@@ -16,6 +17,7 @@ class RssFeed {
   final String? author;
   final String? description;
   final String? link;
+  final List<RssPodcastIndexPerson?>? persons;
   final List<RssItem> items;
 
   final RssImage? image;
@@ -59,6 +61,7 @@ class RssFeed {
     this.dc,
     this.itunes,
     this.podcastIndex,
+    this.persons,
   });
 
   factory RssFeed.parse(String xmlString) {
@@ -78,6 +81,10 @@ class RssFeed {
       items: channelElement
           .findElements('item')
           .map((element) => RssItem.parse(element))
+          .toList(),
+      persons: channelElement
+          .findElements('person')
+          .map((element) => RssPodcastIndexPerson.parse(element))
           .toList(),
       image: RssImage.parse(findElementOrNull(channelElement, 'image')),
       cloud: RssCloud.parse(findElementOrNull(channelElement, 'cloud')),

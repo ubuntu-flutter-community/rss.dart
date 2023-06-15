@@ -57,8 +57,8 @@ class RssItemItunes {
       explicit: parseBoolLiteral(element, 'itunes:explicit'),
       subtitle: findElementOrNull(element, 'itunes:subtitle')?.innerText.trim(),
       keywords: findElementOrNull(element, 'itunes:keywords')
-              ?.value
-              ?.split(',')
+              ?.innerText
+              .split(',')
               .map((keyword) => keyword.trim())
               .toList() ??
           const <String>[],

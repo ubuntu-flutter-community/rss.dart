@@ -2,8 +2,11 @@ import 'dart:core';
 
 import 'package:xml/xml.dart';
 
-XmlElement? findElementOrNull(XmlElement element, String name,
-    {String? namespace,}) {
+XmlElement? findElementOrNull(
+  XmlElement element,
+  String name, {
+  String? namespace,
+}) {
   try {
     return element.findAllElements(name, namespace: namespace).first;
   } on StateError {
@@ -11,8 +14,11 @@ XmlElement? findElementOrNull(XmlElement element, String name,
   }
 }
 
-List<XmlElement>? findAllDirectElementsOrNull(XmlElement element, String name,
-    {String? namespace,}) {
+List<XmlElement>? findAllDirectElementsOrNull(
+  XmlElement element,
+  String name, {
+  String? namespace,
+}) {
   try {
     return element.findElements(name, namespace: namespace).toList();
   } on StateError {
@@ -21,7 +27,7 @@ List<XmlElement>? findAllDirectElementsOrNull(XmlElement element, String name,
 }
 
 bool? parseBoolLiteral(XmlElement element, String tagName) {
-  final v = findElementOrNull(element, tagName)?.value?.toLowerCase().trim();
+  final v = findElementOrNull(element, tagName)?.innerText.toLowerCase().trim();
   if (v == null) return null;
   return ['yes', 'true'].contains(v);
 }
