@@ -1,8 +1,13 @@
 # Changelog
 
+# 1.0.3
+
+* Add support for Podcasting 2.0 Person tag.
+* Bug fixes.
+
 # 1.0.2
 
-Use innerText instead of value when Strings are wanted.
+* Use innerText instead of value when Strings are wanted.
 
 # 1.0.1
 

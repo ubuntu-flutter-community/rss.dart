@@ -23,6 +23,11 @@ class RssPodcastIndexPerson {
     final name = element.innerText.trim();
 
     return RssPodcastIndexPerson(
-        name: name, role: role, group: group, image: image, link: link);
+      name: name,
+      role: role,
+      group: group,
+      image: image,
+      link: link,
+    );
   }
 }
