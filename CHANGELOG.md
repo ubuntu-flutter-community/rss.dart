@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.0.4
+
+* Add support for Podcasting 2.0 GUID tag.
+* Update http library to 1.1.0 release.
+
 # 1.0.3
 
 * Add support for Podcasting 2.0 Person tag.

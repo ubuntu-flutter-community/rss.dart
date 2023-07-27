@@ -97,7 +97,7 @@ void main() {
 
     expect(
       feed.items.first.content!.value,
-      '<img width=\"1000\" height=\"690\" src=\"https://test.com/image_link\"/> Test content<br />',
+      '<img alt="unit test image" width=\"1000\" height=\"690\" src=\"https://test.com/image_link\"/> Test content<br />',
     );
     expect(
       feed.items.first.content!.images.first,
@@ -421,6 +421,7 @@ void main() {
     expect(feed.generator, 'Freedom Controller');
     expect(feed.webMaster, 'support@example.com (Tech Support)');
 
+    expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
     expect(feed.podcastIndex!.locked!.locked, true);
     expect(feed.podcastIndex!.locked!.owner, 'podcastowner@example.com');
     expect(feed.podcastIndex!.funding![0]!.url, 'https://example.com/donate');

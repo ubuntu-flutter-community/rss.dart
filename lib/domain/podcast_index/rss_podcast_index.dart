@@ -5,11 +5,13 @@ import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 class RssPodcastIndex {
+  final String? guid;
   final List<RssPodcastIndexFunding?>? funding;
   final List<RssPodcastIndexPerson?>? persons;
   final RssPodcastIndexLocked? locked;
 
   RssPodcastIndex({
+    this.guid,
     this.funding,
     this.persons,
     this.locked,
@@ -21,6 +23,7 @@ class RssPodcastIndex {
     }
 
     return RssPodcastIndex(
+      guid: findElementOrNull(element, 'podcast:guid')?.innerText,
       funding: element.findElements('podcast:funding').map((e) {
         return RssPodcastIndexFunding.parse(e);
       }).toList(),

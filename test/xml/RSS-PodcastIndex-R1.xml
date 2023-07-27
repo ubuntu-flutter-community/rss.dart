@@ -17,6 +17,7 @@
             <link>https://example.com/show</link>
         </image>
 
+        <podcast:guid>20a14457-0993-49b8-a37a-18384e7f91f8</podcast:guid>
         <podcast:locked owner="podcastowner@example.com">yes</podcast:locked>
         <podcast:funding url="https://example.com/donate">Support the show!</podcast:funding>
         <podcast:funding url="https://example.com/member">Become a member!</podcast:funding>
