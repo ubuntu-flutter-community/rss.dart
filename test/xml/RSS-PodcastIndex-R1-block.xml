@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
     <channel>
-        <title>Podcasting 2.0 Namespace Example R1</title>
+        <title>Podcasting 2.0 Namespace Example R1 Block</title>
         <description>This is a fake show that exists only as an example of the "podcast" namespace tag usage.</description>
         <link>http://example.com/podcast</link>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
@@ -21,6 +21,7 @@
         <podcast:locked owner="podcastowner@example.com">yes</podcast:locked>
         <podcast:funding url="https://example.com/donate">Support the show!</podcast:funding>
         <podcast:funding url="https://example.com/member">Become a member!</podcast:funding>
+        <podcast:block>yes</podcast:block>
 
         <podcast:location name="Austin, TX" geo="geo:30.2672,97.7431" osmid="R113314" />
 

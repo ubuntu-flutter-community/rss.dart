@@ -17,6 +17,7 @@ void main() {
       // Empty catch clause
     }
   });
+
   test('parse RSS.xml', () {
     final xmlString = File('test/xml/RSS.xml').readAsStringSync();
 
@@ -104,6 +105,7 @@ void main() {
       'https://test.com/image_link',
     );
   });
+
   test('parse RSS-Media.xml', () {
     final xmlString = File('test/xml/RSS-Media.xml').readAsStringSync();
 
@@ -255,6 +257,7 @@ void main() {
     expect(item.media!.scenes.first.startTime, '00:15');
     expect(item.media!.scenes.first.endTime, '00:45');
   });
+
   test('parse RSS-DC.xml', () {
     final xmlString = File('test/xml/RSS-DC.xml').readAsStringSync();
 
@@ -360,10 +363,10 @@ void main() {
     expect(feed.itunes!.owner!.email, 'editors@changelog.com');
     expect({
       feed.itunes!.categories[0]!.category,
-      feed.itunes!.categories[1]!.category
+      feed.itunes!.categories[1]!.category,
     }, [
       'Technology',
-      'Foo'
+      'Foo',
     ]);
     for (final category in feed.itunes!.categories) {
       switch (category!.category) {
@@ -405,12 +408,13 @@ void main() {
     expect(item.itunes!.title, 'awesome title');
     expect(item.itunes!.block, false);
   });
+
   test('parse RSS-PodcastIndex-R1.xml', () {
     var xmlString = File('test/xml/RSS-PodcastIndex-R1.xml').readAsStringSync();
 
     var feed = RssFeed.parse(xmlString);
 
-    expect(feed.title, 'Podcasting 2.0 Namespace Example');
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1');
     expect(
       feed.description,
       'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
@@ -420,6 +424,63 @@ void main() {
     expect(feed.lastBuildDate, 'Fri, 09 Oct 2020 04:30:38 GMT');
     expect(feed.generator, 'Freedom Controller');
     expect(feed.webMaster, 'support@example.com (Tech Support)');
+    expect(feed.podcastIndex?.block?.block, false);
+
+    expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
+    expect(feed.podcastIndex!.locked!.locked, true);
+    expect(feed.podcastIndex!.locked!.owner, 'podcastowner@example.com');
+    expect(feed.podcastIndex!.funding![0]!.url, 'https://example.com/donate');
+    expect(feed.podcastIndex!.funding![0]!.value, 'Support the show!');
+    expect(feed.podcastIndex!.funding![1]!.url, 'https://example.com/member');
+    expect(feed.podcastIndex!.funding![1]!.value, 'Become a member!');
+
+    var item1 = feed.items[0];
+    var transcripts1 = item1.podcastIndex!.transcripts;
+    var soundbite1 = item1.podcastIndex!.soundbites;
+    var chapters1 = item1.podcastIndex!.chapters;
+
+    expect(transcripts1.length, 1);
+    expect(transcripts1[0]!.url, 'https://example.com/ep3/transcript.txt');
+    expect(transcripts1[0]!.type, 'text/plain');
+    expect(chapters1?.url, 'https://example.com/ep3_chapters.json');
+    expect(chapters1?.type, 'application/json');
+
+    expect(soundbite1.length, 1);
+    expect(soundbite1[0]!.startTime, 33.833);
+    expect(soundbite1[0]!.duration, 60.0);
+
+    var item2 = feed.items[1];
+    var transcripts2 = item2.podcastIndex!.transcripts;
+    var soundbite2 = item2.podcastIndex!.soundbites;
+    var chapters2 = item2.podcastIndex!.chapters;
+
+    expect(transcripts2.length, 1);
+    expect(transcripts2[0]!.url, 'https://example.com/ep2/transcript.txt');
+    expect(transcripts2[0]!.type, 'text/plain');
+    expect(chapters2?.url, 'https://example.com/ep2_chapters.json');
+    expect(chapters2?.type, 'application/json');
+
+    expect(soundbite2.length, 1);
+    expect(soundbite2[0]!.startTime, 45.4);
+    expect(soundbite2[0]!.duration, 56.0);
+  });
+
+  test('parse RSS-PodcastIndex-R1-block.xml', () {
+    var xmlString = File('test/xml/RSS-PodcastIndex-R1-block.xml').readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Block');
+    expect(
+      feed.description,
+      'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
+    );
+    expect(feed.link, 'http://example.com/podcast');
+    expect(feed.language, 'en-US');
+    expect(feed.lastBuildDate, 'Fri, 09 Oct 2020 04:30:38 GMT');
+    expect(feed.generator, 'Freedom Controller');
+    expect(feed.webMaster, 'support@example.com (Tech Support)');
+    expect(feed.podcastIndex!.block!.block, true);
 
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
     expect(feed.podcastIndex!.locked!.locked, true);
