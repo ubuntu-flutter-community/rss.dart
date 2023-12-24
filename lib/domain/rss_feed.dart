@@ -32,6 +32,7 @@ class RssFeed {
   final String? docs;
   final String? managingEditor;
   final String? rating;
+  final String? medium;
   final String? webMaster;
   final int ttl;
   final DublinCore? dc;
@@ -56,6 +57,7 @@ class RssFeed {
     this.docs,
     this.managingEditor,
     this.rating,
+    this.medium,
     this.webMaster,
     this.ttl = 0,
     this.dc,
@@ -111,6 +113,7 @@ class RssFeed {
       managingEditor:
           findElementOrNull(channelElement, 'managingEditor')?.innerText,
       rating: findElementOrNull(channelElement, 'rating')?.innerText,
+      medium: findElementOrNull(channelElement, 'medium')?.innerText,
       webMaster: findElementOrNull(channelElement, 'webMaster')?.innerText,
       ttl: int.tryParse(
             findElementOrNull(channelElement, 'ttl')?.innerText ?? '0',

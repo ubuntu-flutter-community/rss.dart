@@ -14,7 +14,7 @@ A dart package for parsing RSS1.0 / RSS2.0 / Atom feed.
 - [x] Namespaces
     - [x] Media RSS
     - [x] Dublin Core
-    - [x] Podcast (Phase 1)
+    - [x] Podcast
 
 ### Installing
 
@@ -58,6 +58,7 @@ feed.copyright
 feed.docs
 feed.managingEditor
 feed.rating
+feed.medium
 feed.webMaster
 feed.ttl
 feed.dc
@@ -135,4 +136,4 @@ Dart RSS is licensed under the MIT License - see the [LICENSE.md](LICENSE) file 
 
 ## Thanks
 
-This package is forked from [WebFeed](https://pub.dev/packages/webfeed).
+This package is forked from [WebFeed](https://pub.dev/packages/webfeed) and dart_rss.

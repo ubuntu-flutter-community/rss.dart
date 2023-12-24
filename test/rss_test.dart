@@ -423,6 +423,7 @@ void main() {
     expect(feed.language, 'en-US');
     expect(feed.lastBuildDate, 'Fri, 09 Oct 2020 04:30:38 GMT');
     expect(feed.generator, 'Freedom Controller');
+    expect(feed.medium, 'podcast');
     expect(feed.webMaster, 'support@example.com (Tech Support)');
     expect(feed.podcastIndex?.block?.block, false);
 
@@ -479,6 +480,7 @@ void main() {
     expect(feed.language, 'en-US');
     expect(feed.lastBuildDate, 'Fri, 09 Oct 2020 04:30:38 GMT');
     expect(feed.generator, 'Freedom Controller');
+    expect(feed.medium, null);
     expect(feed.webMaster, 'support@example.com (Tech Support)');
     expect(feed.podcastIndex!.block!.block, true);
 
