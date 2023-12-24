@@ -425,7 +425,23 @@ void main() {
     expect(feed.generator, 'Freedom Controller');
     expect(feed.medium, 'podcast');
     expect(feed.webMaster, 'support@example.com (Tech Support)');
-    expect(feed.podcastIndex?.block?.block, false);
+    expect(feed.podcastIndex!.block!.length, 0);
+
+    // V4V
+    expect(feed.podcastIndex?.value?.length ?? 0, 1);
+    expect(feed.podcastIndex?.value![0]!.type, 'lightning');
+    expect(feed.podcastIndex?.value![0]!.method, 'keysend');
+    expect(feed.podcastIndex?.value![0]!.suggested, 0.000000005);
+
+    expect(feed.podcastIndex?.value![0]!.recipients![0]!.name, 'podcaster');
+    expect(feed.podcastIndex?.value![0]!.recipients![0]!.type, 'node');
+    expect(feed.podcastIndex?.value![0]!.recipients![0]!.address, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
+    expect(feed.podcastIndex?.value![0]!.recipients![0]!.split, 99);
+
+    expect(feed.podcastIndex?.value![0]!.recipients![1]!.name, 'hosting company');
+    expect(feed.podcastIndex?.value![0]!.recipients![1]!.type, 'node');
+    expect(feed.podcastIndex?.value![0]!.recipients![1]!.address, 'abcdefghijklmnopqrstuvwxyz');
+    expect(feed.podcastIndex?.value![0]!.recipients![1]!.split, 1);
 
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
     expect(feed.podcastIndex!.locked!.locked, true);
@@ -482,7 +498,7 @@ void main() {
     expect(feed.generator, 'Freedom Controller');
     expect(feed.medium, null);
     expect(feed.webMaster, 'support@example.com (Tech Support)');
-    expect(feed.podcastIndex!.block!.block, true);
+    expect(feed.podcastIndex!.block![0]!.block, true);
 
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
     expect(feed.podcastIndex!.locked!.locked, true);

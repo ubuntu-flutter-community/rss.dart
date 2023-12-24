@@ -10,7 +10,7 @@ void main() {
   client
       .get(
     Uri.parse(
-      'https://developer.apple.com/news/releases/rss/releases.rss',
+      'https://feeds.podcastindex.org/pc20.xml',
     ),
   )
       .then((response) {
