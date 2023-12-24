@@ -1,5 +1,12 @@
 # Changelog
 
+# 1.0.5
+
+* Add support for Podcasting 2.0 `<podcast:block>` tag
+* Add support for Podcasting 2.0 `<podcast:medium>` tag
+* Add support for Podcasting 2.0 `<podcast:value>` tag
+* Update http library to 1.1.2 release.
+
 # 1.0.4
 
 * Add support for Podcasting 2.0 GUID tag.
