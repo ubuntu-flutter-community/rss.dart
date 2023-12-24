@@ -435,12 +435,15 @@ void main() {
 
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.name, 'podcaster');
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.type, 'node');
-    expect(feed.podcastIndex?.value![0]!.recipients![0]!.address, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
+    expect(feed.podcastIndex?.value![0]!.recipients![0]!.address,
+        'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.split, 99);
 
-    expect(feed.podcastIndex?.value![0]!.recipients![1]!.name, 'hosting company');
+    expect(
+        feed.podcastIndex?.value![0]!.recipients![1]!.name, 'hosting company');
     expect(feed.podcastIndex?.value![0]!.recipients![1]!.type, 'node');
-    expect(feed.podcastIndex?.value![0]!.recipients![1]!.address, 'abcdefghijklmnopqrstuvwxyz');
+    expect(feed.podcastIndex?.value![0]!.recipients![1]!.address,
+        'abcdefghijklmnopqrstuvwxyz');
     expect(feed.podcastIndex?.value![0]!.recipients![1]!.split, 1);
 
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
@@ -483,7 +486,8 @@ void main() {
   });
 
   test('parse RSS-PodcastIndex-R1-block.xml', () {
-    var xmlString = File('test/xml/RSS-PodcastIndex-R1-block.xml').readAsStringSync();
+    var xmlString =
+        File('test/xml/RSS-PodcastIndex-R1-block.xml').readAsStringSync();
 
     var feed = RssFeed.parse(xmlString);
 
