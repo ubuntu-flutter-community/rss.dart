@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.6
+
+* Add support for Podcasting 2.0 `<podcast:license>` tag
+
 # 1.0.5
 
 * Add support for Podcasting 2.0 `<podcast:block>` tag

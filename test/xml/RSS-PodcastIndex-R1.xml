@@ -31,6 +31,8 @@
         <itunes:category text="News"/>
         <itunes:category text="Technology"/>
 
+        <podcast:license>cc-by-4.0</podcast:license>
+
         <itunes:image>https://example.com/images/pci_avatar-massive.jpg</itunes:image>
         <podcast:images srcset="https://example.com/images/pci_avatar-massive.jpg 1500w,
                                         https://example.com/images/pci_avatar-middle.jpg 600w,
@@ -83,6 +85,7 @@
             <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
             <podcast:alternateEnclosure type="audio/x-m4a" length="1540076" bitrate="80" title="Audio - low bitrate">https://example.com/podcast/audio/ep0003-low.mp3</podcast:alternateEnclosure>
             <podcast:alternateEnclosure type="audio/mpeg" length="2534548" bitrate="160" title="Audio - high bitrate">https://example.com/podcast/audio/ep0003-high.mp3</podcast:alternateEnclosure>
+            <podcast:license url="https://www.mytestlicense.org/lic.html">my-test-license-v1</podcast:license>
         </item>
 
         <item>

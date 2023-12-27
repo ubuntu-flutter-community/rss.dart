@@ -1,4 +1,5 @@
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_chapters.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_license.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_person.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_soudbite.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_transcript.dart';
@@ -11,7 +12,8 @@ class RssItemPodcastIndex {
   final List<RssPodcastIndexTranscript?> transcripts;
   final List<RssPodcastIndexSoundbite?> soundbites;
   final List<RssPodcastIndexPerson?> persons;
-  final List<RssPodcastIndexValue?>? value;
+  final List<RssPodcastIndexValue?> value;
+  final RssPodcastIndexLicense? license;
 
   RssItemPodcastIndex({
     this.chapters,
@@ -19,6 +21,7 @@ class RssItemPodcastIndex {
     this.soundbites = const <RssPodcastIndexSoundbite>[],
     this.persons = const <RssPodcastIndexPerson>[],
     this.value = const <RssPodcastIndexValue>[],
+    this.license,
   });
 
   factory RssItemPodcastIndex.parse(XmlElement element) {
@@ -38,6 +41,9 @@ class RssItemPodcastIndex {
       value: element.findElements('podcast:value').map((e) {
         return RssPodcastIndexValue.parse(e);
       }).toList(),
+      license: RssPodcastIndexLicense.parse(
+        findElementOrNull(element, 'podcast:license'),
+      ),
     );
   }
 }

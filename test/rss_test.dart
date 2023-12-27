@@ -427,6 +427,9 @@ void main() {
     expect(feed.webMaster, 'support@example.com (Tech Support)');
     expect(feed.podcastIndex!.block!.length, 0);
 
+    expect(feed.podcastIndex!.license!.url, null);
+    expect(feed.podcastIndex!.license!.license, 'cc-by-4.0');
+
     // V4V
     expect(feed.podcastIndex?.value?.length ?? 0, 1);
     expect(feed.podcastIndex?.value![0]!.type, 'lightning');
@@ -465,6 +468,10 @@ void main() {
     expect(chapters1?.url, 'https://example.com/ep3_chapters.json');
     expect(chapters1?.type, 'application/json');
 
+    expect(item1.podcastIndex!.license!.url,
+        'https://www.mytestlicense.org/lic.html');
+    expect(item1.podcastIndex!.license!.license, 'my-test-license-v1');
+
     expect(soundbite1.length, 1);
     expect(soundbite1[0]!.startTime, 33.833);
     expect(soundbite1[0]!.duration, 60.0);
@@ -479,6 +486,8 @@ void main() {
     expect(transcripts2[0]!.type, 'text/plain');
     expect(chapters2?.url, 'https://example.com/ep2_chapters.json');
     expect(chapters2?.type, 'application/json');
+
+    expect(item2.podcastIndex!.license, null);
 
     expect(soundbite2.length, 1);
     expect(soundbite2[0]!.startTime, 45.4);
