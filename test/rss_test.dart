@@ -551,4 +551,46 @@ void main() {
     expect(soundbite2[0]!.startTime, 45.4);
     expect(soundbite2[0]!.duration, 56.0);
   });
+
+  test('parse RSS-PodcastIndex-R1-medium.xml', () {
+    var xmlString =
+        File('test/xml/RSS-PodcastIndex-R1-medium.xml').readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Medium');
+    expect(
+      feed.description,
+      'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
+    );
+    expect(feed.link, 'https://example.com/podcast');
+    expect(feed.language, 'en-US');
+    expect(feed.lastBuildDate, 'Sun, 21 Apr 2024 11:00:38 GMT');
+    expect(feed.generator, 'Freedom Controller');
+    expect(feed.medium, 'podcast');
+    expect(feed.webMaster, 'support@example.com (Tech Support)');
+    expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
+    expect(feed.podcastIndex!.locked!.locked, true);
+    expect(feed.podcastIndex!.locked!.owner, 'podcastowner@example.com');
+    expect(feed.podcastIndex!.funding![0]!.url, 'https://example.com/donate');
+    expect(feed.podcastIndex!.funding![0]!.value, 'Support the show!');
+    expect(feed.podcastIndex!.funding![1]!.url, 'https://example.com/member');
+    expect(feed.podcastIndex!.funding![1]!.value, 'Become a member!');
+
+    var item1 = feed.items[0];
+    var item2 = feed.items[1];
+    var item3 = feed.items[2];
+
+    var season1 = item1.podcastIndex!.season;
+    expect(season1?.season, 1);
+    expect(season1?.name, 'Podcasting 2.0 Season');
+
+    var season2 = item2.podcastIndex!.season;
+    expect(season2?.season, 1);
+    expect(season2?.name, null);
+
+    var season3 = item3.podcastIndex!.season;
+    expect(season3?.season, 0);
+    expect(season3?.name, null);
+  });
 }

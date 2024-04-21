@@ -1,5 +1,9 @@
 # Changelog
 
+# Development
+ 
+* Add support for Podcasting 2.0 `<podcast:season>` tag
+
 # 1.0.6
 
 * Add support for Podcasting 2.0 `<podcast:license>` tag

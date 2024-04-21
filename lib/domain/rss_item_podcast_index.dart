@@ -1,6 +1,7 @@
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_chapters.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_license.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_person.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_season.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_soudbite.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_transcript.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_value.dart';
@@ -14,6 +15,7 @@ class RssItemPodcastIndex {
   final List<RssPodcastIndexPerson?> persons;
   final List<RssPodcastIndexValue?> value;
   final RssPodcastIndexLicense? license;
+  final RssPodcastIndexSeason? season;
 
   RssItemPodcastIndex({
     this.chapters,
@@ -22,6 +24,7 @@ class RssItemPodcastIndex {
     this.persons = const <RssPodcastIndexPerson>[],
     this.value = const <RssPodcastIndexValue>[],
     this.license,
+    this.season,
   });
 
   factory RssItemPodcastIndex.parse(XmlElement element) {
@@ -43,6 +46,9 @@ class RssItemPodcastIndex {
       }).toList(),
       license: RssPodcastIndexLicense.parse(
         findElementOrNull(element, 'podcast:license'),
+      ),
+      season: RssPodcastIndexSeason.parse(
+        findElementOrNull(element, 'podcast:season'),
       ),
     );
   }
