@@ -569,6 +569,29 @@ void main() {
     expect(feed.generator, 'Freedom Controller');
     expect(feed.medium, 'podcast');
     expect(feed.webMaster, 'support@example.com (Tech Support)');
+
+    // Remote items
+    expect(feed.podcastIndex!.remoteItem!.length, 3);
+
+    var remoteItem1 = feed.podcastIndex!.remoteItem![0];
+    var remoteItem2 = feed.podcastIndex!.remoteItem![1];
+    var remoteItem3 = feed.podcastIndex!.remoteItem![2];
+
+    expect(remoteItem1?.feedGuid, '917393e3-1b1e-5cef-ace4-edaa54e1f810');
+    expect(remoteItem1?.feedUrl, null);
+    expect(remoteItem1?.itemGuid, null);
+    expect(remoteItem1?.medium, null);
+
+    expect(remoteItem2?.feedGuid, '917393e3-1b1e-5cef-ace4-edaa54e1f811');
+    expect(remoteItem2?.feedUrl, null);
+    expect(remoteItem2?.itemGuid, 'asdf089j0-ep240-20230510');
+    expect(remoteItem2?.medium, null);
+
+    expect(remoteItem3?.feedGuid, '917393e3-1b1e-5cef-ace4-edaa54e1f812');
+    expect(remoteItem3?.feedUrl, 'https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f811/rss.xml');
+    expect(remoteItem3?.itemGuid, 'asdf089j0-ep240-20230511');
+    expect(remoteItem3?.medium, 'music');
+
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
     expect(feed.podcastIndex!.locked!.locked, true);
     expect(feed.podcastIndex!.locked!.owner, 'podcastowner@example.com');

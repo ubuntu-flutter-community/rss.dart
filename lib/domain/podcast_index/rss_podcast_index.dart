@@ -2,6 +2,7 @@ import 'package:rss_dart/domain/podcast_index/rss_podcast_index_block.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_funding.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_license.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_person.dart';
+import 'package:rss_dart/domain/podcast_index/rss_podcast_index_remote_item.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_value.dart';
 import 'package:rss_dart/domain/podcast_index/rss_podcast_index_locked.dart';
 import 'package:rss_dart/util/helpers.dart';
@@ -13,6 +14,7 @@ class RssPodcastIndex {
   final List<RssPodcastIndexPerson?>? persons;
   final List<RssPodcastIndexValue?>? value;
   final List<RssPodcastIndexBlock?>? block;
+  final List<RssPodcastIndexRemoteItem?>? remoteItem;
   final RssPodcastIndexLocked? locked;
   final RssPodcastIndexLicense? license;
 
@@ -24,6 +26,7 @@ class RssPodcastIndex {
     this.locked,
     this.block,
     this.license,
+    this.remoteItem,
   });
 
   static RssPodcastIndex? parse(XmlElement? element) {
@@ -38,6 +41,9 @@ class RssPodcastIndex {
       }).toList(),
       persons: element.findElements('podcast:person').map((e) {
         return RssPodcastIndexPerson.parse(e);
+      }).toList(),
+      remoteItem: element.findElements('podcast:remoteItem').map((e) {
+        return RssPodcastIndexRemoteItem.parse(e);
       }).toList(),
       value: element
           .findElements('podcast:value')
