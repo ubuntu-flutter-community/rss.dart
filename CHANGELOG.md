@@ -1,6 +1,6 @@
 # Changelog
 
-# Development
+# 1.0.7
  
 * Add support for Podcasting 2.0 `<podcast:remoteItem>` tag (channel level)
 * Add support for Podcasting 2.0 `<podcast:season>` tag
