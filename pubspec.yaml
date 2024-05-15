@@ -6,7 +6,7 @@ homepage: https://github.com/ubuntu-flutter-community/rss.dart
 environment:
   sdk: ">=3.0.0 <4.0.0"
 dependencies:
-  xml: ^6.3.0
+  xml: ^6.5.0
   http: ^1.1.2
   intl: ^0.19.0
 
