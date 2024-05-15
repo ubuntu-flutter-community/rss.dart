@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
     <channel>
-        <title>Podcasting 2.0 Namespace Example R1 Medium</title>
+        <title>Podcasting 2.0 Namespace Example R1 Remote Item</title>
         <description>This is a fake show that exists only as an example of the "podcast" namespace tag usage.</description>
         <link>https://example.com/podcast</link>
         <docs>https://blogs.law.harvard.edu/tech/rss</docs>
@@ -62,7 +62,17 @@
             <podcast:valueRecipient name="hosting company" type="node" address="abcdefghijklmnopqrstuvwxyz" split="1" />
         </podcast:value>
 
-        <podcast:medium>audiobook</podcast:medium>
+        <podcast:remoteItem feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f810" />
+
+        <podcast:remoteItem
+                feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f811"
+                itemGuid="asdf089j0-ep240-20230510" />
+
+        <podcast:remoteItem
+                feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f812"
+                feedUrl="https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f811/rss.xml"
+                itemGuid="asdf089j0-ep240-20230511"
+                medium="music" />
 
         <item>
             <title>Episode 3 - The Future</title>

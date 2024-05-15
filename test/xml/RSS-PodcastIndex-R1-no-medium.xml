@@ -62,8 +62,6 @@
             <podcast:valueRecipient name="hosting company" type="node" address="abcdefghijklmnopqrstuvwxyz" split="1" />
         </podcast:value>
 
-        <podcast:medium>audiobook</podcast:medium>
-
         <item>
             <title>Episode 3 - The Future</title>
             <description>&lt;p&gt;A look into the future of podcasting and how we get to Podcasting 2.0!&lt;/p&gt;</description>

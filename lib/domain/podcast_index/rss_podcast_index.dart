@@ -17,6 +17,7 @@ class RssPodcastIndex {
   final List<RssPodcastIndexRemoteItem?>? remoteItem;
   final RssPodcastIndexLocked? locked;
   final RssPodcastIndexLicense? license;
+  final String? medium;
 
   RssPodcastIndex({
     this.guid,
@@ -26,6 +27,7 @@ class RssPodcastIndex {
     this.locked,
     this.block,
     this.license,
+    this.medium,
     this.remoteItem,
   });
 
@@ -59,6 +61,7 @@ class RssPodcastIndex {
       license: RssPodcastIndexLicense.parse(
         findElementOrNull(element, 'podcast:license'),
       ),
+      medium: findElementOrNull(element, 'podcast:medium')?.innerText,
     );
   }
 }

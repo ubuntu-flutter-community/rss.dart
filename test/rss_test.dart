@@ -552,13 +552,13 @@ void main() {
     expect(soundbite2[0]!.duration, 56.0);
   });
 
-  test('parse RSS-PodcastIndex-R1-medium.xml', () {
+  test('parse RSS-PodcastIndex-R1-remote-item.xml', () {
     var xmlString =
-        File('test/xml/RSS-PodcastIndex-R1-medium.xml').readAsStringSync();
+        File('test/xml/RSS-PodcastIndex-R1-remote-item.xml').readAsStringSync();
 
     var feed = RssFeed.parse(xmlString);
 
-    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Medium');
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Remote Item');
     expect(
       feed.description,
       'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
@@ -615,5 +615,35 @@ void main() {
     var season3 = item3.podcastIndex!.season;
     expect(season3?.season, 0);
     expect(season3?.name, null);
+  });
+
+  test('parse RSS-PodcastIndex-R1-no-medium.xml', () {
+    var xmlString =
+        File('test/xml/RSS-PodcastIndex-R1-no-medium.xml').readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Medium');
+    expect(
+      feed.description,
+      'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
+    );
+
+    expect(feed.podcastIndex!.medium, null);
+  });
+
+  test('parse RSS-PodcastIndex-R1-medium.xml', () {
+    var xmlString =
+        File('test/xml/RSS-PodcastIndex-R1-medium.xml').readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Medium');
+    expect(
+      feed.description,
+      'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
+    );
+
+    expect(feed.podcastIndex!.medium, 'audiobook');
   });
 }
