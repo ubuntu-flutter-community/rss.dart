@@ -1,5 +1,12 @@
 # Changelog
 
+# 1.0.8
+
+* Add support for Podcasting 2.0 `<podcast:medium>` tag
+* Update xml dependency to 6.5.0
+* Update http dependency to 1.2.1
+* Update intl dependency to 0.19.0
+
 # 1.0.7
  
 * Add support for Podcasting 2.0 `<podcast:remoteItem>` tag (channel level)
