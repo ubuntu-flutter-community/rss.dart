@@ -1,8 +1,8 @@
 # rss.dart
 
-This is a fork of https://github.com/sudame/dart-rss (which itself is a fork of https://github.com/witochandra/webfeed) :fork_and_knife: :fork_and_knife: that is updated for dart 3 and Flutter 3.10.
+This is a fork of https://github.com/sudame/dart-rss (which itself is a fork of https://github.com/witochandra/webfeed) :fork_and_knife: :fork_and_knife: that is updated for Dart 3.
 
-We publish this updated package under rss.dart.
+We publish this updated package under rss_dart.
 
 A dart package for parsing RSS1.0 / RSS2.0 / Atom feed.
 
@@ -20,12 +20,12 @@ A dart package for parsing RSS1.0 / RSS2.0 / Atom feed.
 
 Add this line into your `pubspec.yaml`
 ```
-dart_rss: ^1.0.1
+rss_dart: ^1.0.8
 ```
 
 Import the package into your dart code using:
 ```
-import 'package:dart_rss/dart_rss.dart';
+import 'package:rss_dart/dart_rss.dart';
 ```
 
 ### Example
@@ -132,7 +132,7 @@ item.content
 
 ## License
 
-Dart RSS is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+rss_dart is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## Thanks
 

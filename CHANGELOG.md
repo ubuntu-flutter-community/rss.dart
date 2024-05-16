@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.9
+
+* Correct README.md
+
 # 1.0.8
 
 * Add support for Podcasting 2.0 `<podcast:medium>` tag
