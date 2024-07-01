@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.10
+
+* Added Thumbnail as a Media Group property
+
 # 1.0.9
 
 * Correct README.md
