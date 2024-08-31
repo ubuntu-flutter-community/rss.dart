@@ -6,11 +6,11 @@ import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
 enum UpdatePeriod {
-  Hourly,
-  Daily,
-  Weekly,
-  Monthly,
-  Yearly,
+  hourly,
+  daily,
+  weekly,
+  monthly,
+  yearly,
 }
 
 class Rss1Feed {
@@ -39,15 +39,15 @@ class Rss1Feed {
   static UpdatePeriod? _parseUpdatePeriod(String? updatePeriodString) {
     switch (updatePeriodString) {
       case 'hourly':
-        return UpdatePeriod.Hourly;
+        return UpdatePeriod.hourly;
       case 'daily':
-        return UpdatePeriod.Daily;
+        return UpdatePeriod.daily;
       case 'weekly':
-        return UpdatePeriod.Weekly;
+        return UpdatePeriod.weekly;
       case 'monthly':
-        return UpdatePeriod.Monthly;
+        return UpdatePeriod.monthly;
       case 'yearly':
-        return UpdatePeriod.Yearly;
+        return UpdatePeriod.yearly;
       default:
         return null;
     }

@@ -2,7 +2,8 @@
 
 # 1.0.10
 
-* Added Thumbnail as a Media Group property
+* BREAKING CHANGE: All enums corrected to camel-case to fit in with current lint rules.
+* Added Thumbnail as a Media Group property (@michael-yarzebinski).
 
 # 1.0.9
 

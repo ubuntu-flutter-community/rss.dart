@@ -27,17 +27,17 @@ void main() {
 
     test('it can detect Atom feed.', () {
       final version = WebFeed.detectRssVersion(atomXmlString);
-      expect(version, RssVersion.Atom);
+      expect(version, RssVersion.atom);
     });
 
     test('it can detect RSS1.0 feed.', () {
       final version = WebFeed.detectRssVersion(rss1XmlString);
-      expect(version, RssVersion.RSS1);
+      expect(version, RssVersion.rss1);
     });
 
     test('it can detect RSS2.0 feed.', () {
       final version = WebFeed.detectRssVersion(rss2XmlString);
-      expect(version, RssVersion.RSS2);
+      expect(version, RssVersion.rss2);
     });
 
     test('it can parse Atom feed.', () {

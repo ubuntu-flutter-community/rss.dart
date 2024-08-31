@@ -37,7 +37,7 @@ void main() {
     expect(feed.link, 'http://meerkat.oreillynet.com');
     expect(feed.description, 'Meerkat: An Open Wire Service');
 
-    expect(feed.updatePeriod, UpdatePeriod.Hourly);
+    expect(feed.updatePeriod, UpdatePeriod.hourly);
     expect(feed.updateFrequency, 2);
     expect(feed.updateBase, DateTime.parse('2000-01-01T12:00+00:00'));
   });

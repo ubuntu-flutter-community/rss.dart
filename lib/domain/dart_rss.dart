@@ -27,10 +27,10 @@ extension SafeParseDateTime on DateTime {
 }
 
 enum RssVersion {
-  RSS1,
-  RSS2,
-  Atom,
-  Unknown,
+  rss1,
+  rss2,
+  atom,
+  unknown,
 }
 
 class WebFeed {
@@ -49,16 +49,16 @@ class WebFeed {
   static WebFeed fromXmlString(String xmlString) {
     final rssVersion = detectRssVersion(xmlString);
     switch (rssVersion) {
-      case RssVersion.RSS1:
+      case RssVersion.rss1:
         final rss1Feed = Rss1Feed.parse(xmlString);
         return WebFeed.fromRss1(rss1Feed);
-      case RssVersion.RSS2:
+      case RssVersion.rss2:
         final rss2Feed = RssFeed.parse(xmlString);
         return WebFeed.fromRss2(rss2Feed);
-      case RssVersion.Atom:
+      case RssVersion.atom:
         final atomFeed = AtomFeed.parse(xmlString);
         return WebFeed.fromAtom(atomFeed);
-      case RssVersion.Unknown:
+      case RssVersion.unknown:
         throw Error.safeToString(
           'Invalid XML String? We cannot detect RSS/Atom version.',
         );
@@ -144,13 +144,13 @@ class WebFeed {
         : feedRefs.first.getAttribute('xmlns')?.toLowerCase().contains('atom');
 
     if (rdfRefs.isNotEmpty) {
-      return RssVersion.RSS1;
+      return RssVersion.rss1;
     } else if (rssRefs.isNotEmpty && ver != null && ver) {
-      return RssVersion.RSS2;
+      return RssVersion.rss2;
     } else if (feedRefs.isNotEmpty && xmlns != null && xmlns) {
-      return RssVersion.Atom;
+      return RssVersion.atom;
     }
-    return RssVersion.Unknown;
+    return RssVersion.unknown;
   }
 }
 
