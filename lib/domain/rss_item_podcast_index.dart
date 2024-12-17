@@ -47,7 +47,8 @@ class RssItemPodcastIndex {
       value: element.findElements('podcast:value').map((e) {
         return RssPodcastIndexValue.parse(e);
       }).toList(),
-      alternateEnclosure: element.findElements('podcast:alternateEnclosure').map((e) {
+      alternateEnclosure:
+          element.findElements('podcast:alternateEnclosure').map((e) {
         return RssPodcastIndexAlternateEnclosure.parse(e);
       }).toList(),
       license: RssPodcastIndexLicense.parse(

@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.0.12
+
+* Update http dependency
+* Begin improving API documentation
+* Bug fixes
+
 # 1.0.11
 
 * Add support for Podcasting 2.0 `<podcast:alternateEnclosure>` tag

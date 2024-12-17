@@ -1,7 +1,12 @@
 import 'package:xml/xml.dart';
 
+/// This class represents a (chapter)[https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters] tag.
+/// Links to an external file containing chapter data for the episode.
 class RssPodcastIndexChapters {
+  /// The URL of the chapter file.
   final String? url;
+
+  /// The mime type of chapter file such as application/json+chapters.
   final String? type;
 
   RssPodcastIndexChapters({

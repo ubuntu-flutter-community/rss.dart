@@ -438,15 +438,21 @@ void main() {
 
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.name, 'podcaster');
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.type, 'node');
-    expect(feed.podcastIndex?.value![0]!.recipients![0]!.address,
-        'ABCDEFGHIJLKMNOPQRSTUVWXYZ',);
+    expect(
+      feed.podcastIndex?.value![0]!.recipients![0]!.address,
+      'ABCDEFGHIJLKMNOPQRSTUVWXYZ',
+    );
     expect(feed.podcastIndex?.value![0]!.recipients![0]!.split, 99);
 
     expect(
-        feed.podcastIndex?.value![0]!.recipients![1]!.name, 'hosting company',);
+      feed.podcastIndex?.value![0]!.recipients![1]!.name,
+      'hosting company',
+    );
     expect(feed.podcastIndex?.value![0]!.recipients![1]!.type, 'node');
-    expect(feed.podcastIndex?.value![0]!.recipients![1]!.address,
-        'abcdefghijklmnopqrstuvwxyz',);
+    expect(
+      feed.podcastIndex?.value![0]!.recipients![1]!.address,
+      'abcdefghijklmnopqrstuvwxyz',
+    );
     expect(feed.podcastIndex?.value![0]!.recipients![1]!.split, 1);
 
     expect(feed.podcastIndex!.guid, '20a14457-0993-49b8-a37a-18384e7f91f8');
@@ -468,8 +474,10 @@ void main() {
     expect(chapters1?.url, 'https://example.com/ep3_chapters.json');
     expect(chapters1?.type, 'application/json');
 
-    expect(item1.podcastIndex!.license!.url,
-        'https://www.mytestlicense.org/lic.html',);
+    expect(
+      item1.podcastIndex!.license!.url,
+      'https://www.mytestlicense.org/lic.html',
+    );
     expect(item1.podcastIndex!.license!.license, 'my-test-license-v1');
 
     expect(soundbite1.length, 1);
@@ -588,7 +596,8 @@ void main() {
     expect(remoteItem2?.medium, null);
 
     expect(remoteItem3?.feedGuid, '917393e3-1b1e-5cef-ace4-edaa54e1f812');
-    expect(remoteItem3?.feedUrl, 'https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f811/rss.xml');
+    expect(remoteItem3?.feedUrl,
+        'https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f811/rss.xml');
     expect(remoteItem3?.itemGuid, 'asdf089j0-ep240-20230511');
     expect(remoteItem3?.medium, 'music');
 
@@ -648,12 +657,13 @@ void main() {
   });
 
   test('parse RSS-PodcastIndex-R1-alternate-enclosure.xml', () {
-    var xmlString =
-        File('test/xml/RSS-PodcastIndex-R1-alternate-enclosure.xml').readAsStringSync();
+    var xmlString = File('test/xml/RSS-PodcastIndex-R1-alternate-enclosure.xml')
+        .readAsStringSync();
 
     var feed = RssFeed.parse(xmlString);
 
-    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Alternate Enclosure');
+    expect(
+        feed.title, 'Podcasting 2.0 Namespace Example R1 Alternate Enclosure');
     expect(
       feed.description,
       'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
@@ -662,12 +672,18 @@ void main() {
     expect(feed.items[0].podcastIndex?.alternateEnclosure.length, 0);
 
     expect(feed.items[1].podcastIndex?.alternateEnclosure.length, 2);
-    expect(feed.items[1].podcastIndex?.alternateEnclosure[0]?.sources?.length, 1);
+    expect(
+        feed.items[1].podcastIndex?.alternateEnclosure[0]?.sources?.length, 1);
     expect(feed.items[1].podcastIndex?.alternateEnclosure[0]?.integrity, null);
 
     expect(feed.items[2].podcastIndex?.alternateEnclosure.length, 2);
-    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?.length, 2);
-    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.integrity?.type, 'sri');
-    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?[1]?.contentType, 'application/x-bittorrent');
+    expect(
+        feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?.length, 2);
+    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.integrity?.type,
+        'sri');
+    expect(
+        feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?[1]
+            ?.contentType,
+        'application/x-bittorrent');
   });
 }

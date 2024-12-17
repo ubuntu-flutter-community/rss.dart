@@ -1,1 +1,7 @@
 include: package:lints/recommended.yaml
+
+# Uncomment below to continue implementing missing API documentation
+#
+#linter:
+#  rules:
+#    - public_member_api_docs

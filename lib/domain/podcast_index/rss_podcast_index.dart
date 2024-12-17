@@ -8,15 +8,33 @@ import 'package:rss_dart/domain/podcast_index/rss_podcast_index_locked.dart';
 import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
+/// Represents podcast namespace items at the channel level.
 class RssPodcastIndex {
+  /// Unique ID for the podcast
   final String? guid;
+
+  /// List of optional funding tags.
   final List<RssPodcastIndexFunding?>? funding;
+
+  /// List of optional people related to the podcast.
   final List<RssPodcastIndexPerson?>? persons;
+
+  /// Optional Lightning block for the podcast
   final List<RssPodcastIndexValue?>? value;
+
+  /// Should this RSS feed be ingested or not.
   final List<RssPodcastIndexBlock?>? block;
+
+  /// List of remote items for the podcast.
   final List<RssPodcastIndexRemoteItem?>? remoteItem;
+
+  /// Is this RSS feed locked or not?
   final RssPodcastIndexLocked? locked;
+
+  /// Optional licence type for the podcast.
   final RssPodcastIndexLicense? license;
+
+  /// Optional medium type for the podcast such as audiobook.
   final String? medium;
 
   RssPodcastIndex({
