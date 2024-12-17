@@ -62,8 +62,6 @@ class WebFeed {
         throw Error.safeToString(
           'Invalid XML String? We cannot detect RSS/Atom version.',
         );
-      default:
-        throw Exception('Some error has occured.');
     }
   }
 

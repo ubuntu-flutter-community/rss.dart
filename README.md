@@ -20,7 +20,7 @@ A dart package for parsing RSS1.0 / RSS2.0 / Atom feed.
 
 Add this line into your `pubspec.yaml`
 ```
-rss_dart: ^1.0.8
+rss_dart: ^1.0.11
 ```
 
 Import the package into your dart code using:
