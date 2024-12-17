@@ -646,4 +646,28 @@ void main() {
 
     expect(feed.podcastIndex!.medium, 'audiobook');
   });
+
+  test('parse RSS-PodcastIndex-R1-alternate-enclosure.xml', () {
+    var xmlString =
+        File('test/xml/RSS-PodcastIndex-R1-alternate-enclosure.xml').readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(feed.title, 'Podcasting 2.0 Namespace Example R1 Alternate Enclosure');
+    expect(
+      feed.description,
+      'This is a fake show that exists only as an example of the "podcast" namespace tag usage.',
+    );
+
+    expect(feed.items[0].podcastIndex?.alternateEnclosure.length, 0);
+
+    expect(feed.items[1].podcastIndex?.alternateEnclosure.length, 2);
+    expect(feed.items[1].podcastIndex?.alternateEnclosure[0]?.sources?.length, 1);
+    expect(feed.items[1].podcastIndex?.alternateEnclosure[0]?.integrity, null);
+
+    expect(feed.items[2].podcastIndex?.alternateEnclosure.length, 2);
+    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?.length, 2);
+    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.integrity?.type, 'sri');
+    expect(feed.items[2].podcastIndex?.alternateEnclosure[0]?.sources?[1]?.contentType, 'application/x-bittorrent');
+  });
 }

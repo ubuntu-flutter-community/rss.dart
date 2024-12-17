@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.11
+
+* Add support for Podcasting 2.0 `<podcast:alternateEnclosure>` tag
+
 # 1.0.10
 
 * BREAKING CHANGE: All enums corrected to camel-case to fit in with current lint rules.
