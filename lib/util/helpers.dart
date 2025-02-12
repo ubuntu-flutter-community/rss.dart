@@ -8,7 +8,8 @@ XmlElement? findElementOrNull(
   String? namespace,
 }) {
   try {
-    return element.findAllElements(name, namespace: namespace).first;
+    return element.childElements
+        .firstWhere((child) => child.name.qualified == name);
   } on StateError {
     return null;
   }
