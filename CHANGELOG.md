@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.13
+
+* Update intl dependency for Flutter 3.32.x.
+
 # 1.0.12
 
 * Update http dependency
