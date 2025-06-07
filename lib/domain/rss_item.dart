@@ -1,5 +1,6 @@
 import 'package:rss_dart/domain/dublin_core/dublin_core.dart';
 import 'package:rss_dart/domain/media/media.dart';
+import 'package:rss_dart/domain/podlove/rss_podlove.dart';
 import 'package:rss_dart/domain/rss_category.dart';
 import 'package:rss_dart/domain/rss_content.dart';
 import 'package:rss_dart/domain/rss_enclosure.dart';
@@ -27,6 +28,7 @@ class RssItem {
   final DublinCore? dc;
   final RssItemItunes? itunes;
   final RssItemPodcastIndex? podcastIndex;
+  final RssItemPodlove? podlove;
 
   const RssItem({
     this.title,
@@ -44,6 +46,7 @@ class RssItem {
     this.dc,
     this.itunes,
     this.podcastIndex,
+    this.podlove,
   });
 
   factory RssItem.parse(XmlElement element) {
@@ -66,6 +69,7 @@ class RssItem {
       dc: DublinCore.parse(element),
       itunes: RssItemItunes.parse(element),
       podcastIndex: RssItemPodcastIndex.parse(element),
+      podlove: RssItemPodlove.parse(element),
     );
   }
 }
