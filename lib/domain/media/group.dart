@@ -3,6 +3,7 @@ import 'package:rss_dart/domain/media/content.dart';
 import 'package:rss_dart/domain/media/credit.dart';
 import 'package:rss_dart/domain/media/rating.dart';
 import 'package:rss_dart/domain/media/thumbnail.dart';
+import 'package:rss_dart/domain/media/description.dart';
 import 'package:rss_dart/util/helpers.dart';
 import 'package:xml/xml.dart';
 
@@ -12,6 +13,7 @@ class Group {
   final List<Thumbnail> thumbnails;
   final Category? category;
   final Rating? rating;
+  final Description? description;
 
   const Group({
     this.contents = const <Content>[],
@@ -19,12 +21,14 @@ class Group {
     this.thumbnails = const <Thumbnail>[],
     this.category,
     this.rating,
+    this.description,
   });
 
   static Group? parse(XmlElement? element) {
     if (element == null) {
       return null;
     }
+
     return Group(
       contents: element
           .findElements('media:content')
@@ -40,6 +44,9 @@ class Group {
           .toList(),
       category: Category.parse(findElementOrNull(element, 'media:category')),
       rating: Rating.parse(findElementOrNull(element, 'media:rating')),
+      description: Description.parse(
+        findElementOrNull(element, 'media:description'),
+      ),
     );
   }
 }

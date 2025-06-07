@@ -117,6 +117,9 @@ void main() {
     expect(mediaGroupThumbnail.height, '50');
     expect(mediaGroupThumbnail.time, '12:05:01.123');
 
+    expect(item.media!.group!.description!.type, 'plain');
+    expect(item.media!.group!.description!.value, 'Some cool stuff!');
+
     expect(item.media!.contents.length, 2);
     final mediaContent = item.media!.contents.first;
     expect(mediaContent.url, 'http://www.foo.com/video.mov');
