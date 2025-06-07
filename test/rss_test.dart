@@ -686,4 +686,39 @@ void main() {
             ?.contentType,
         'application/x-bittorrent');
   });
+
+  test('parse RSS-Podlove Simple Chapters', () {
+    var xmlString = File('test/xml/podlove_simple_chapters.xml')
+        .readAsStringSync();
+
+    var feed = RssFeed.parse(xmlString);
+
+    expect(
+        feed.title, 'Rasenfunk – Tribünengespräch');
+
+    // test if number of chapters is correct
+    expect(feed.items[0].podlove?.chapters?.length, 31);
+    expect(feed.items[1].podlove?.chapters?.length, 14);
+    expect(feed.items[2].podlove?.chapters?.length, 12);
+    expect(feed.items[3].podlove?.chapters?.length, 14);
+
+    // test if chapter content is correct
+    final firstChapter = feed.items[0].podlove?.chapters?[0];
+    expect(firstChapter?.start?.inSeconds, 0);
+    expect(firstChapter?.title, 'Begrüßung');
+    expect(firstChapter?.href, null);
+    expect(firstChapter?.imageUrl, null);
+
+    final secondChapter = feed.items[0].podlove?.chapters?[1];
+    expect(secondChapter?.start?.inMilliseconds, 68908);
+    expect(secondChapter?.title, 'Ein Leben zwischen Ü-Wagen und Kabinentrakt');
+    expect(secondChapter?.href, null);
+    expect(secondChapter?.imageUrl, null);
+
+    final thirdChapter = feed.items[0].podlove?.chapters?[2];
+    expect(thirdChapter?.start?.inMilliseconds, 668500);
+    expect(thirdChapter?.title, 'Test Chapter');
+    expect(thirdChapter?.href, "https://test.com/test");
+    expect(thirdChapter?.imageUrl, "https://test.com/test.jpg");
+  });
 }
