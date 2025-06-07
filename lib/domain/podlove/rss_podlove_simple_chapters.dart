@@ -3,14 +3,14 @@ import 'package:xml/xml.dart';
 
 /// Specification: https://podlove.org/simple-chapters
 class RssPodloveSimpleChapters {
-  final Duration? start;
+  final Duration start;
   final String? title;
   final String? href;
   final String? imageUrl;
 
   const RssPodloveSimpleChapters({
-    this.start,
-    required this.title,
+    required this.start,
+    this.title,
     this.href,
     this.imageUrl,
   });
@@ -26,18 +26,17 @@ class RssPodloveSimpleChapters {
     if (start == null) {
       return null;
     }
+    final parsedStart = parseNormalPlayTime(start);
+    if (parsedStart == null) {
+      return null;
+    }
 
     final chapter = RssPodloveSimpleChapters(
-      start: parseNormalPlayTime(start),
+      start: parsedStart,
       title: element.getAttribute('title'),
       href: element.getAttribute('href'),
       imageUrl: element.getAttribute('imageUrl'),
     );
-
-    // start parsing failed
-    if (chapter.start == null) {
-      return null;
-    }
 
     return chapter;
   }
