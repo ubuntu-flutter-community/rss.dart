@@ -694,31 +694,61 @@ void main() {
     var feed = RssFeed.parse(xmlString);
 
     expect(
-        feed.title, 'Rasenfunk – Tribünengespräch');
+        feed.title, 'Example Podlove Simple Chapters');
 
     // test if number of chapters is correct
-    expect(feed.items[0].podlove?.chapters?.length, 31);
-    expect(feed.items[1].podlove?.chapters?.length, 14);
-    expect(feed.items[2].podlove?.chapters?.length, 12);
-    expect(feed.items[3].podlove?.chapters?.length, 14);
+    expect(feed.items[0].podlove?.chapters?.length, 4);
+    expect(feed.items[1].podlove?.chapters?.length, 6);
 
-    // test if chapter content is correct
+    // test if chapter content is correct with episode 1
     final firstChapter = feed.items[0].podlove?.chapters?[0];
-    expect(firstChapter?.start?.inSeconds, 0);
-    expect(firstChapter?.title, 'Begrüßung');
+    expect(firstChapter?.start.inSeconds, 0);
+    expect(firstChapter?.title, 'First Chapter');
     expect(firstChapter?.href, null);
     expect(firstChapter?.imageUrl, null);
 
     final secondChapter = feed.items[0].podlove?.chapters?[1];
-    expect(secondChapter?.start?.inMilliseconds, 68908);
-    expect(secondChapter?.title, 'Ein Leben zwischen Ü-Wagen und Kabinentrakt');
+    expect(secondChapter?.start.inMilliseconds, 68908);
+    expect(secondChapter?.title, 'Second Chapter');
     expect(secondChapter?.href, null);
     expect(secondChapter?.imageUrl, null);
 
     final thirdChapter = feed.items[0].podlove?.chapters?[2];
-    expect(thirdChapter?.start?.inMilliseconds, 668500);
+    expect(thirdChapter?.start.inMilliseconds, 668500);
     expect(thirdChapter?.title, 'Test Chapter');
     expect(thirdChapter?.href, "https://test.com/test");
     expect(thirdChapter?.imageUrl, "https://test.com/test.jpg");
+
+    // time formats with episode 2
+    final episode2 = feed.items[1];
+
+    final firstChapter2 = episode2.podlove?.chapters?[0];
+    expect(firstChapter2?.start.inSeconds, 0);
+    expect(firstChapter2?.title, 'First Chapter');
+
+    final secondChapter2 = episode2.podlove?.chapters?[1];
+    final startDurationSecondChapter2 = Duration(seconds: 182);
+    expect(secondChapter2?.start.inMilliseconds, startDurationSecondChapter2.inMilliseconds);
+    expect(secondChapter2?.title, 'Second Chapter starts at 182 seconds');
+
+    final thirdChapter2 = episode2.podlove?.chapters?[2];
+    final startDurationThirdChapter2 = Duration(minutes: 6, seconds: 43);
+    expect(thirdChapter2?.start.inMilliseconds, startDurationThirdChapter2.inMilliseconds);
+    expect(thirdChapter2?.title, 'Third Chapter starts at 6 min 43 seconds');
+
+    final forthChapter2 = episode2.podlove?.chapters?[3];
+    final startDurationForthChapter2 = Duration( minutes: 41, seconds: 4, milliseconds: 120);
+    expect(forthChapter2?.start.inMilliseconds, startDurationForthChapter2.inMilliseconds);
+    expect(forthChapter2?.title, 'Forth Chapter starts at 41 min 4 seconds and 120 ms');
+
+    final fifthChapter2 = episode2.podlove?.chapters?[4];
+    final startDurationFifthChapter2 = Duration(hours: 1, minutes: 3, seconds: 54);
+    expect(fifthChapter2?.start.inMilliseconds, startDurationFifthChapter2.inMilliseconds);
+    expect(fifthChapter2?.title, 'Fifth Chapter starts at 1h 3 min 54 seconds');
+
+    final endChapter2 = episode2.podlove?.chapters?[5];
+    final startDurationEndChapter2 = Duration(hours: 2, minutes: 23, seconds: 8, milliseconds: 188);
+    expect(endChapter2?.start.inMilliseconds, startDurationEndChapter2.inMilliseconds);
+    expect(endChapter2?.title, 'End Chapter starts at 02:23:08.188');
   });
 }
