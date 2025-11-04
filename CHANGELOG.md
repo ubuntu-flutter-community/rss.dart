@@ -2,6 +2,7 @@
 
 # 1.0.14
 
+* Add support for Podlove chapters (@Limatationz).
 * Update intl dependency to `any` so it uses SDK pinned version.
 * Update `http` to `1.5.0`.
 
