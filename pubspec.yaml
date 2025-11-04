@@ -1,5 +1,5 @@
 name: rss_dart
-version: 1.0.13
+version: 1.0.14
 description: rss_dart is a rss parser for RSS1.0/RSS2.0/Atom. This library is forked from webfeed https://github.com/witochandra/webfeed and dart_rss.
 homepage: https://github.com/ubuntu-flutter-community/rss.dart
 
@@ -7,8 +7,8 @@ environment:
   sdk: ">=3.6.0 <4.0.0"
 dependencies:
   xml: ^6.5.0
-  http: ^1.4.0
-  intl: ^0.20.2
+  http: ^1.5.0
+  intl: any
 
 dev_dependencies:
   test: ^1.16.4

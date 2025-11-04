@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.0.14
+
+* Update intl dependency to `any` so it uses SDK pinned version.
+* Update `http` to `1.5.0`.
+
 # 1.0.13
 
 * Update intl dependency for Flutter 3.32.x.
