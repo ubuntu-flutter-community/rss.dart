@@ -20,7 +20,7 @@ class RssPodcastIndexChapters {
     }
 
     return RssPodcastIndexChapters(
-      url: element.getAttribute('url'),
+      url: element.getAttribute('url') ?? element.getAttribute('href'),
       type: element.getAttribute('type'),
     );
   }
